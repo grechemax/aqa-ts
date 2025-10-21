@@ -8,5 +8,5 @@ const sumArray = (arr: (string | number)[]): number =>
 const numbers2: number[] = [100, 200, 300];
 const strings2: string[] = ['5', '15', '25'];
 
-console.log('Number array sum:', sumArray(numbers));
-console.log('String array sum:', sumArray(strings));
+console.log('Number array sum:', sumArray(numbers2));
+console.log('String array sum:', sumArray(strings2));
