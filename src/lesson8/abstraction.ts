@@ -1,32 +1,32 @@
 abstract class Vehicle {
-  constructor(public brand: string, public engine: Engine) {}
+    public constructor(public brand: string, public engine: Engine) {}
 
-  abstract drive(): string;
+    public abstract drive(): string;
 
-  getEngineInfo(): string {
-  // This method delegates part of its behavior to a composed object (Engine),
-  // demonstrating composition: the Vehicle "has an" Engine and uses its method.
-  return this.engine.getEngineInfo();
-}
+    public getEngineInfo(): string {
+        // This method delegates part of its behavior to a composed object (Engine),
+        // demonstrating composition: the Vehicle "has an" Engine and uses its method.
+        return this.engine.getEngineInfo();
+    }
 }
 
 class Engine {
-  constructor(public horsepower: number, public type: string) {}
+    public constructor(public horsepower: number, public type: string) {}
 
-  getEngineInfo(): string {
-    return `${this.horsepower}HP ${this.type} engine`;
-  }
+    public getEngineInfo(): string {
+        return `${this.horsepower}HP ${this.type} engine`;
+    }
 }
 
 class Car extends Vehicle {
-  constructor(brand: string, engine: Engine, public doors: number) {
-    super(brand, engine);
-  }
+    public constructor(brand: string, engine: Engine, public doors: number) {
+        super(brand, engine);
+    }
 
-  // Overriding the drive() method
-  drive(): string {
-    return `${this.brand} car drives with ${this.getEngineInfo()}`;
-  }
+    // Overriding the drive() method
+    public drive(): string {
+        return `${this.brand} car drives with ${this.getEngineInfo()}`;
+    }
 }
 
 
