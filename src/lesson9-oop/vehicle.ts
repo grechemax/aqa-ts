@@ -1,17 +1,14 @@
-import { Drivable } from './i-drivable';
+import { Drivable } from './interfaces/i-drivable';
 
+/** Abstract base class for all vehicles */
 export abstract class Vehicle implements Drivable {
-    public readonly type: string; // visible to all, cannot change after creation
-    protected speed: number; // subclasses can modify
-    private fuelType: string; // hidden — use getter if needed
+    public readonly type: string;
+    protected speed: number;
+    protected readonly fuelType: string;
 
     protected constructor(type: string, speed: number, fuelType: string) {
         this.type = type;
         this.speed = speed;
-        this.fuelType = fuelType;
-    }
-
-    public setFuelType(fuelType: string): void {
         const allowedTypes = ['gas', 'electric'];
         if (!allowedTypes.includes(fuelType)) {
             throw new Error('Invalid fuel type');
@@ -23,7 +20,6 @@ export abstract class Vehicle implements Drivable {
         return this.fuelType;
     }
 
-    // concrete method shared by all subclasses
     public accelerate(amount: number): void {
         if (amount < 0) {
             throw new Error('Acceleration amount cannot be negative');
@@ -31,7 +27,5 @@ export abstract class Vehicle implements Drivable {
         this.speed += amount;
     }
 
-    public start(): void{
-        console.log(this.type + ' car started');
-    }
+    public abstract start(): void; // Force subclasses to define start behavior
 }

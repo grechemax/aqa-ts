@@ -1,15 +1,17 @@
+import { IFuelable } from '../interfaces/i-fuelable';
 import { Vehicle } from '../vehicle';
 
-export abstract class CombustionCar extends Vehicle {
+export abstract class CombustionCar extends Vehicle implements IFuelable {
     protected fuelLevel = 0;
     public constructor(type: string, speed: number) {
         super(type, speed, 'gas');
     }
 
+    // Forces subclasses to implement
     public refuel(fuelLevel: number): void {
-        if (fuelLevel < 0 || fuelLevel > 100) {
-            throw new Error('Fuel level must be between 0 and 100');
-        }
         this.fuelLevel = fuelLevel;
     }
+
+    // Forces subclasses to implement
+    public abstract checkOilLevel(): void;
 }

@@ -7,7 +7,7 @@ export class Bmw extends CombustionCar {
         this.model = model;
     }
 
-    public start(): void {
+    public override start(): void {
         console.log(`BMW ${this.model} car started with a roar \n`);
     }
 
@@ -17,7 +17,12 @@ export class Bmw extends CombustionCar {
     }
 
     public override refuel(fuelLevel: number): void {
-        super.refuel(fuelLevel);
-        console.log(`BMW ${this.model} refueled to ${this.fuelLevel} liters \n`);
+        console.log(`BMW ${this.model}/${this.type} refueled to ${fuelLevel} liters \n`);
+    }
+
+    public override checkOilLevel(): void {
+        const oilLevel = Math.floor(Math.random() * 101);
+        const status = oilLevel < 40 ? 'Low' : oilLevel < 70 ? 'Medium' : 'Optimal';
+        console.log(`BMW ${this.model} oil level: ${oilLevel}% (${status})\n`);
     }
 }

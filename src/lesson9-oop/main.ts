@@ -1,4 +1,4 @@
-import { Drivable } from './i-drivable';
+import { Drivable } from './interfaces/i-drivable';
 import { Tesla } from './electric-car/tesla';
 import { Bmw } from './combustion-car/bmw';
 
@@ -7,14 +7,17 @@ function driveVehicle(vehicle: Drivable, amount: number): void {
     vehicle.accelerate(amount);
 }
 
-const teslaModelX = new Tesla('sedan', 'Model X', 0);
-const bmw3 = new Bmw('SUV', 'X5', 0);
-
-console.log('--------Tesla-------');
-teslaModelX.charge(80);
-teslaModelX.getRange();
-driveVehicle(teslaModelX, 50);
+const bmw = new Bmw('coupe', 'M4', 0);
+const tesla = new Tesla('SUV', 'Model X', 0);
 
 console.log('---------BMW--------');
-bmw3.refuel(50);
-driveVehicle(bmw3, 160);
+bmw.refuel(50);
+bmw.checkOilLevel();
+driveVehicle(bmw, 160);
+
+console.log('--------Tesla-------');
+tesla.charge(80);
+tesla.getRange();
+driveVehicle(tesla, 50);
+
+
