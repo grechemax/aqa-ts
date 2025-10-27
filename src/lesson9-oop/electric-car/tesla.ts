@@ -16,9 +16,15 @@ export class Tesla extends ElectricCar {
         console.log(`Tesla ${this.model} drives at ${this.speed} km/h \n`); // extra detail
     }
 
-    public override charge(batteryLevel: number): void {
-        super.charge(batteryLevel); // base logic: change battery level
-        console.log(`Tesla ${this.model} battery charged to ${batteryLevel}% \n`); // extra detail
+    public override charge(chargeTimeMins: number): number {
+        // Every 30 mins add 10% battery
+        if (chargeTimeMins > 300) {
+            throw new Error('Tesla battery cannot be charged more than 300 minutes');
+        } else {
+            this.batteryLevel = (chargeTimeMins / 30) * 10;
+            console.log(`Tesla charged ${chargeTimeMins} minutes and battery level is ${this.batteryLevel}% \n`);
+        }
+        return this.batteryLevel;
     }
 
     public override getRange(): number {

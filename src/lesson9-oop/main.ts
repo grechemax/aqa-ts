@@ -2,7 +2,7 @@ import { Drivable } from './interfaces/i-drivable';
 import { Tesla } from './electric-car/tesla';
 import { Bmw } from './combustion-car/bmw';
 
-function driveVehicle(vehicle: Drivable, amount: number): void {
+export function driveVehicle(vehicle: Drivable, amount: number): void {
     vehicle.start();
     vehicle.accelerate(amount);
 }

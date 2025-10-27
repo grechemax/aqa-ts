@@ -7,9 +7,11 @@ export abstract class ElectricCar extends Vehicle implements IChargeable {
         super(type, speed, 'electric');
     }
 
-    public charge(batteryLevel: number): void {
-        this.batteryLevel = batteryLevel;
+    public getBatteryLevel(): number {
+        return this.batteryLevel;
     }
+
+    public abstract charge(chargeTimeMins: number): number;
 
     // Forces subclasses to implement
     public abstract getRange(): number;
