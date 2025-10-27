@@ -3,13 +3,24 @@
     "@eslint/js": "^9.38.0",
     "@stylistic/eslint-plugin": "^5.5.0",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
+    "@types/chai": "^5.2.3",
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "chai": "^6.2.0",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-unicorn": "^61.0.2",
+    "jest": "^30.2.0",
+    "mocha": "^11.7.4",
+    "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1"
+  },
+  "scripts": {
+    "test:mocha": "mocha -r ts-node/register tests/unit/**/*.mocha.spec.ts",
+    "test:jest": "jest"
   }
 }
