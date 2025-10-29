@@ -8,12 +8,9 @@ describe('Test Tesla', () => {
         tesla = new Tesla('sedan', 'model S', 0);
     });
 
-    it('Should be electric', () => {
+    it('Should be electric and empty battery', () => {
         assert.equal(tesla.getFuelType(), 'electric');
-    });
-
-    it('Initial battery level should be 0', () => {
-        expect(tesla.getBatteryLevel()).to.equal(0);
+        assert.equal(tesla.getBatteryLevel(), 0);
     });
 
     it('Should get charged correctly', () => {

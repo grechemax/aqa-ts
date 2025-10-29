@@ -11,7 +11,6 @@ describe('Test BMW', () => {
     it('Should has gas engine', () => {
         assert.equal(bmw.getFuelType(), 'gas'); //uses Mocha's assert
     });
-
     it('Should have some oil level', () => {
         const oilLevel = bmw.checkOilLevel();
         assert.ok(oilLevel > 0); //uses Mocha's assert
