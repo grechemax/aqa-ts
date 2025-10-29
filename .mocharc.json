@@ -1,0 +1,11 @@
+{
+  "require": "ts-node/register",
+  "extension": ["ts"],
+  "spec": [
+    "tests/unit/**/*.mocha.spec.ts"
+  ],
+  "ignore": [
+    "**/*.jest.spec.ts",
+    "**/node_modules/**"
+  ]
+}

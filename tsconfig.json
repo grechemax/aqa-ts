@@ -1,7 +1,7 @@
 {
   "include": [
     "**/*"
-  ],
+, "tests/unit/utils/vehicle-actions.jest.spec.ts"  ],
   "exclude": [
     "eslint.config.mjs",
     "./build/**/*",
